@@ -1,0 +1,51 @@
+{% extends 'nav.html' %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %} 
+</head>
+<body class="img-fluid" style=" background-repeat: no-repeat; background-size:100% 100%; background-image: url('{% static "images/st5.jpg" %}');">
+    
+  <form action="{% url 'logoutfun' %}" class="bg-info">
+       
+        <button type="submit"  class="btn btn-outline-light mb-2" style="margin-left: 60%;  border-radius: 44%; width: 5%;">logout</button>
+        </form>
+       
+        <div class="container">
+            <h2>Show student details</h2>
+            <p class="text-light">Students data are available here.....</p>            
+            <table class="table" border="2px">
+              <thead class="text-light">
+                <tr>
+                  <th>Student Id</th>
+                  <th>Student Name</th>
+                  <th>Address</th>
+                  <th>Age</th>
+                  <th>Gender</th>
+                  <th>Email</th>
+                </tr>
+              </thead>
+              <tbody class="text-light">
+                {% for st in stkey %}
+                <tr>
+                  <td>{{st.s_code}}</td>
+                  <td>{{st.s_name}}</td>
+                  <td>{{st.s_add}}</td>
+                  <td>{{st.s_age}}</td>
+                  <td>{{st.s_gen}}</td>
+                  <td>{{st.s_mail}}</td>
+                </tr>
+               {% endfor %}
+              </tbody>
+            </table></form>
+          </div>
+                
+   
+</body>
+
+</html>
+{% endblock  %} 

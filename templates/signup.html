@@ -1,0 +1,56 @@
+{% extends 'nav.html' %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   {% load static %} 
+</head>
+<body class="img-fluid" style=" background-repeat: no-repeat; background-size:100% 100%; background-image: url('{% static "images/st1.jpg" %}');">
+    <div class="container">
+    <div class="row d-flex justify-content-center mt-5">
+        
+            <form  style="background-color: rgb(0, 0, 255,0.7); width: 30%; height: 30%;">
+                <h3 class="text-warning pl-5"style="font-size: 2vw;">Information</h3>
+                <p class="text-light pl-2" style="font-size: 1vw;">Education refers to the discipline that is concerned with methods of teaching and learning 
+                    in schools or school-like environments,</p>
+                    <p class="text-light pl-2" style="font-size: 1vw;"> as opposed to various nonformal
+                     and informal means of socialization.</p>
+                <p class="text-light pl-2" style="font-size: 1vw;">These aims may include the development of understanding, rationality, kindness, and honesty.</p>
+                    <p class="text-light pl-2" style="font-size: 1vw;"> Various researchers emphasize 
+                    the role of critical thinking in order to distinguish education from indoctrination.</p>
+                <p class="text-light pl-2" style="font-size: 1vw;">Today, educational goals increasingly encompass</p>
+                    <p class="text-light pl-2" style="font-size: 1vw;"> new ideas such as the liberation of learners, 
+                    skills needed for modern society, empathy, and complex vocational skills.</p>
+            </form>
+        
+        <div class="col-auto ">
+    <form action="{% url 'signfun' %}" method="post">
+        {% csrf_token %}
+        {% for msg in messages %}
+<h6 class="alert alert-info mt-3 ml-5">{{msg}}</h6>
+{% endfor %}
+<h3 class="text-light bg-dark pl-3" >Registration</h3>
+
+        <input type="text" name="fname"class="form-control" placeholder="First Name"><br>
+        
+        <input type="text" name="lname" class="form-control" placeholder="Last Name"><br>
+       
+        <input type="text" name="uname"class="form-control" placeholder="Username"><br>
+       
+        <input type="text" name="mail" class="form-control"placeholder="Email"><br>
+        
+        <input type="password" name="pwd" class="form-control"placeholder="Password"><br>
+        
+        <input type="password" name="cpwd" class="form-control"placeholder="Confirm password"><br>
+        <button type="submit" class="btn btn-outline-info" style="margin-left: 20%;">submit</button><br>
+        <h6 >Do you have an account ? please &nbsp;<a href="{% url 'logins' %}">Login</a></h6>
+
+    </form></div></div>
+</div>
+</body>
+</html>
+
+{% endblock  %} 

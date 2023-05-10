@@ -1,0 +1,48 @@
+{% extends 'nav.html' %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %} 
+</head>
+<body class="img-fluid" style=" background-repeat: no-repeat; background-size:100% 100%; background-image: url('{% static "images/st3.jpg" %}');">
+    
+    <form action="{% url 'logoutfun' %}" class="bg-info">
+        <button type="submit"  class="btn btn-outline-light mb-2" style="margin-left: 60%;  border-radius: 44%; width: 5%;">logout</button>
+        </form>
+        <div class="container pl-5">
+        
+            <div class="row  mt-5">
+                
+                <div class="col-sm-3"></div>
+                <div class="col-sm-4">
+    <form action="{% url 'stufun' %}" method="post" style="background-color: rgb(0, 0, 0,0.4);">
+        {% csrf_token %}
+        <h3 class="text-info pl-5 " >Add student</h3>
+        <label for="" class="pl-4 text-light">Student Id</label> <br>
+        <input type="text" name="stid" class="form-control "> <br>
+        <label for="" class="pl-4 text-light">Student Name</label> <br>
+        <input type="text" name="sname" class="form-control"> <br>
+        <label for="" class="pl-4 text-light">Address</label> <br>
+        <input type="text" name="sadd" class="form-control"> <br>
+        <label for="" class="pl-4 text-light">Age</label> <br>
+        <input type="number" name="sage" class="form-control"> <br>
+        <label for="" class="pl-4 text-light">Gender</label><br><br>
+        <input type="radio" name="sgen" value="female"class="pl-4 text-light" >
+        <label for="" class="pl-4 text-light">Female</label><br>
+        <input type="radio" name="sgen" value="male" class="pl-4 text-light">
+        <label for="" class="pl-4 text-light">Male</label><br>
+        <label for="" class="pl-4 text-light">Email</label><br>
+        <input type="email" name="smail" class="form-control"><br>
+   
+        <button type="submit" class="btn btn-outline-info ml-5">Addstudent</button>
+        
+    </form></div></div></div>
+   
+</body>
+
+</html>
+{% endblock  %} 
